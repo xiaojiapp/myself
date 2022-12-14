@@ -2984,7 +2984,7 @@ updateNginxBlog() {
 	echoContent red "=============================================================="
 	read -r -p "请选择:" selectInstallNginxBlogType
 
-	if [[ "${selectInstallNginxBlogType}" =~ ^[1-16]$ ]]; then
+	if [[ "${selectInstallNginxBlogType}" =~ ^[1-17]$ ]]; then
 		rm -rf /usr/share/nginx/*
 		if wget --help | grep -q show-progress; then
 			wget -c -q --show-progress -P /usr/share/nginx "https://raw.githubusercontent.com/xiaojiapp/myself/master/fodder/blog/unable/html${selectInstallNginxBlogType}.zip" >/dev/null
