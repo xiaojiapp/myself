@@ -2974,17 +2974,10 @@ updateNginxBlog() {
 	echoContent yellow "7.个人博客01"
 	echoContent yellow "8.个人博客02"
 	echoContent yellow "9.CoffeeShop"
-	echoContent yellow "10.Eating"
-	echoContent yellow "11.Treehut"
-	echoContent yellow "12.SAM DOE"
-	echoContent yellow "13.PHOTOGRAPHS"
-	echoContent yellow "14.John Doe"
-	echoContent yellow "15.BOOTSTRAP"
-	echoContent yellow "16.GRAYSCALE"
 	echoContent red "=============================================================="
 	read -r -p "请选择:" selectInstallNginxBlogType
 
-	if [[ "${selectInstallNginxBlogType}" =~ ^[01-16]$ ]]; then
+	if [[ "${selectInstallNginxBlogType}" =~ ^[1-9]$ ]]; then
 		rm -rf /usr/share/nginx/*
 		if wget --help | grep -q show-progress; then
 			wget -c -q --show-progress -P /usr/share/nginx "https://raw.githubusercontent.com/xiaojiapp/myself/master/fodder/blog/unable/html${selectInstallNginxBlogType}.zip" >/dev/null
