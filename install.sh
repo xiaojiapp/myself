@@ -2991,7 +2991,6 @@ updateNginxBlog() {
 			unzip -o /usr/share/nginx/html${randomNum}.zip -d /usr/share/nginx/html >/dev/null
 			rm -f /usr/share/nginx/html${randomNum}.zip*
 			echoContent green " ---> 更换伪装站点成功"
-		fi
 		
 		echoContent red " ---> 选择错误，请重新选择"
 		updateNginxBlog
