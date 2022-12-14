@@ -2982,16 +2982,7 @@ updateNginxBlog() {
 	echoContent yellow "15.BOOTSTRAP"
 	echoContent yellow "16.GRAYSCALE"
 	echoContent red "=============================================================="
-	read -r -p "请选择，输入[0]使用1-16随机:" selectInstallNginxBlogType
-
-		if [[ "${selectInstallNginxBlogType}" == "0" ]]; then
-			rm -rf /usr/share/nginx/html
-			randomNum=$((RANDOM % 6 + 1))
-			wget -q -P /usr/share/nginx https://raw.githubusercontent.com/xiaojiapp/myself/master/fodder/blog/unable/html${randomNum}.zip >/dev/null
-			unzip -o /usr/share/nginx/html${randomNum}.zip -d /usr/share/nginx/html >/dev/null
-			rm -f /usr/share/nginx/html${randomNum}.zip*
-			echoContent green " ---> 更换伪装站点成功"
-}		
+	read -r -p "请选择，输入:" selectInstallNginxBlogType	
 
 	if [[ "${selectInstallNginxBlogType}" =~ ^[1-16]$ ]]; then
 		rm -rf /usr/share/nginx/*
