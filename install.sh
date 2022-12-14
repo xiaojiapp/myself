@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 # 检测区
 # -------------------------------------------------------------
 # 检查系统
@@ -2978,37 +2978,7 @@ updateNginxBlog() {
 	echoContent red "=============================================================="
 	read -r -p "请选择:" selectInstallNginxBlogType
 
-	if [[ "${selectInstallNginxBlogType}" == "10" ]]; then
-		echoContent red "\n=============================================================="
-		echoContent yellow "重定向的优先级更高，配置302之后如果更改伪装站点，根路由下伪装站点将不起作用"
-		echoContent yellow "如想要伪装站点实现作用需删除302重定向配置\n"
-		echoContent yellow "1.添加"
-		echoContent yellow "2.删除"
-		echoContent red "=============================================================="
-		read -r -p "请选择:" redirectStatus
-
-		if [[ "${redirectStatus}" == "1" ]]; then
-			backupNginxConfig backup
-			read -r -p "请输入要重定向的域名,例如 https://www.baidu.com:" redirectDomain
-			removeNginx302
-			addNginx302 "${redirectDomain}"
-			handleNginx stop
-			handleNginx start
-			if [[ -z $(pgrep -f nginx) ]]; then
-				backupNginxConfig restoreBackup
-				handleNginx start
-				exit 0
-			fi
-			checkNginx302
-			exit 0
-		fi
-		if [[ "${redirectStatus}" == "2" ]]; then
-			removeNginx302
-			echoContent green " ---> 移除302重定向成功"
-			exit 0
-		fi
-	fi
-	if [[ "${selectInstallNginxBlogType}" =~ ^[1-9]$ ]]; then
+	if [[ "${selectInstallNginxBlogType}" =~ ^[1-16]$ ]]; then
 		rm -rf /usr/share/nginx/*
 		if wget --help | grep -q show-progress; then
 			wget -c -q --show-progress -P /usr/share/nginx "https://raw.githubusercontent.com/xiaojiapp/myself/master/fodder/blog/unable/html${selectInstallNginxBlogType}.zip" >/dev/null
