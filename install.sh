@@ -2992,8 +2992,6 @@ updateNginxBlog() {
 			rm -f /usr/share/nginx/html${randomNum}.zip*
 			echoContent green " ---> 更换伪装站点成功"
 		
-		echoContent red " ---> 选择错误，请重新选择"
-		updateNginxBlog
 
 	if [[ "${selectInstallNginxBlogType}" =~ ^[1-16]$ ]]; then
 		rm -rf /usr/share/nginx/*
