@@ -2995,7 +2995,6 @@ updateNginxBlog() {
 		
 		echoContent red " ---> 选择错误，请重新选择"
 		updateNginxBlog
-	fi
 
 	if [[ "${selectInstallNginxBlogType}" =~ ^[1-16]$ ]]; then
 		rm -rf /usr/share/nginx/*
